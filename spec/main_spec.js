@@ -11,11 +11,14 @@ let transformPostcode = require("../lib/main.js");
 
 describe("postnet", () => {
     it("returns relevent barcode given 5-digit zipcode", () => {
-
         let result = transformPostcode("95713");
         let expectString = "||:|:::|:|:|:::|:::||::||::|:|:|";
-        
         expect(expectString).to.equal(result);
+    });
+
+    it("calculates check code correctly", () => {
+        let result = transformPostcode("95718");
+        let expectString = "||:|:::|:|:|:::|:::|||::|:||:::|";
     });
 
     it ("returns relevent barcode given 9-digit zipcode", () => {
